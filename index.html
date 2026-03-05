@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Kasir Sederhana</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<h1>Aplikasi Kasir Sederhana</h1>
+
+<div class="box">
+  <h2>Tambah Produk</h2>
+  <label>Nama Produk</label>
+  <input type="text" id="namaProduk" oninput="this.value = this.value.replace(/(^|\s)\S/g, t => t.toUpperCase())" />
+
+  <label>Harga Beli</label>
+  <input type="text" id="hargaBeli" oninput="formatInputRupiah(this)" />
+
+  <label>Harga Jual</label>
+  <input type="text" id="hargaJual" oninput="formatInputRupiah(this)" />
+
+  <label>Stok</label>
+  <input type="number" id="stok" />
+
+  <button onclick="tambahProduk()">Tambah Produk</button>
+</div>
+
+<div class="box">
+  <h2>Daftar Produk</h2>
+  <table id="tabelProduk"> 
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Harga Beli</th>
+        <th>Harga Jual</th>
+        <th>Stok</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="box">
+  <h2>Penjualan</h2>
+  <label>Pilih Produk</label>
+  <select id="pilihProduk"></select>
+
+  <label>Jumlah</label>
+  <input type="number" id="jumlahJual" />
+
+  <button class="success" onclick="jualProduk()">Jual</button>
+  <button onclick="cetakStruk()">Cetak Struk</button>
+</div>
+
+<div class="box">
+  <h2>Riwayat Penjualan</h2>
+  <table id="tabelPenjualan">
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Produk</th>
+        <th>Jumlah</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
